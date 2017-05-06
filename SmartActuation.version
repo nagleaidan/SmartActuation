@@ -1,7 +1,7 @@
 {
   "NAME":"SmartActuation",
+  "URL":"https://raw.githubusercontent.com/theRagingIrishman/SmartActuation/master/SmartActuation.version",
   "DOWNLOAD":"https://github.com/theRagingIrishman/SmartActuation/releases/latest",
-  "CHANGE_LOG_URL":"https://raw.githubusercontent.com/theRagingIrishman/SmartActuation/master/CHANGELOG.txt",
   "GITHUB":
   {
     "USERNAME":"theRagingIrishman",
