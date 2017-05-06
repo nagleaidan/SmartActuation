@@ -9,6 +9,7 @@ namespace ClawKSP
 		public void Start()
 		{
 			Controller.HookModule("ModuleControlSurface", "MCS");
+			Controller.HookModule("ModuleAeroSurface", "MCS");
 		}
 	}
 
@@ -18,57 +19,42 @@ namespace ClawKSP
 		private float ctrlSurfaceRange;
 		private float vacuumRange = 1.0f;
 
-		private void Enable()
-		{
-			Debug.Log(moduleName + "enabled");
-
-			if (FlightGlobals.getStaticPressure(part.transform.position) < 0.001f)
-			{
-				vacuumRange = 0.01f;
-			}
-
-			ctrlSurfaceRange = ControlSurfaceModule.ctrlSurfaceRange;
-			ControlSurfaceModule.ctrlSurfaceRange = ctrlSurfaceRange * vacuumRange;
-		}
+		[KSPField(isPersistant = true, guiName = "Locked in Vacum", guiActive = true, guiActiveEditor = true), UI_Toggle(enabledText = "On", disabledText = "Off")]
+		public bool blockerEnabled = true;
 
 		public override void OnStart(StartState state)
 		{
-			Debug.Log(moduleName + ".Start():");
-
 			base.OnStart(state);
 
 			ControlSurfaceModule = part.FindModuleImplementing<ModuleControlSurface>();
-
 			if (null == ControlSurfaceModule)
 			{
 				Debug.LogWarning("Did not find Control Surface Module.");
 				return;
 			}
 
-			Enable();
-
+			ctrlSurfaceRange = ControlSurfaceModule.ctrlSurfaceRange;
+			ControlSurfaceModule.ctrlSurfaceRange = ctrlSurfaceRange * vacuumRange;
 		}
 
 		public void FixedUpdate()
 		{
 			ControlSurfaceModule = part.FindModuleImplementing<ModuleControlSurface>();
-
 			if (null == ControlSurfaceModule)
 			{
 				return;
 			}
-
-			if (true)
+			if (!ControlSurfaceModule.deploy&&blockerEnabled)
 			{
 				if (FlightGlobals.getStaticPressure(part.transform.position) < 0.001f)
 				{
-					if (vacuumRange > 0.01f)
+					if (vacuumRange > 0.001f)
 					{
 						vacuumRange -= 0.05f;
 					}
 					else
 					{
-						vacuumRange = 0.01f;
+						vacuumRange = 0.001f;
 					}
 				}
 				else
@@ -82,8 +68,13 @@ namespace ClawKSP
 						vacuumRange = 1.0f;
 					}
 				}
-				ControlSurfaceModule.ctrlSurfaceRange = ctrlSurfaceRange * vacuumRange * Mathf.Sign(ControlSurfaceModule.ctrlSurfaceRange);
 			}
+			else
+			{
+				vacuumRange = 1.0f;
+			}
+			ControlSurfaceModule.ctrlSurfaceRange = ctrlSurfaceRange* vacuumRange * Mathf.Sign(ControlSurfaceModule.ctrlSurfaceRange);
 		}
+		//public void Update(){Debug.Log("test" + blockerEnabled);} //debugger
 	}
 }

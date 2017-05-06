@@ -15,7 +15,7 @@ namespace ClawKSP
     public class MGPlus : PartModule
     {
 
-        public bool plusEnabled = false;
+		public bool plusEnabled = true;
 
         [KSPField(guiName = "Gimbal Rate", isPersistant = true)]
         [UI_Toggle(disabledText = "Disabled", enabledText = "Active", affectSymCounterparts = UI_Scene.All)]

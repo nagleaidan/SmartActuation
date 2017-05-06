@@ -8,8 +8,8 @@ namespace ClawKSP
 	{
 		public static bool plusActive = true;
         public static bool controlSurfacePlus = true;
-        public static bool gimbalPlus = false;
-        public static bool gimbalRateIsActive = false;
+        public static bool gimbalPlus = true;
+        public static bool gimbalRateIsActive = true;
         public static float gimbalResponseSpeed = 10f;
 
         public static void HookModule(string targetModule, string attachingModule)
@@ -25,7 +25,7 @@ namespace ClawKSP
                     {
                         if (!ModuleAttached(currentPart, attachingModule))
                         {
-                            Debug.Log(targetModule + " found. Attaching " + attachingModule + ".");
+                            Debug.Log(targetModule + " found. Upgrading actuators.");
                             PartModule newModule = currentPart.AddModule(attachingModule);
                             if (null == newModule)
                             {
