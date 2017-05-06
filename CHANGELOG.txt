@@ -3,6 +3,7 @@ CHANGELOG.TXT:
 1.0.1
 -added Airbrakes and other parts that use ModuleAeroSurface rather than ModuleControlSurface
 -enabled deployment while in orbit
+-added button to turn off the blocker (per part)
 -added SmartActuation.version
 -added changelog.txt
 1.0
