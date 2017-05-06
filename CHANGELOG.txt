@@ -1,0 +1,7 @@
+CHANGELOG.TXT:
+
+1.0.1
+-added Airbrakes and other parts that use ModuleAeroSurface rather than ModuleControlSurface
+-enabled deployment while in orbit
+1.0
+-initial release
