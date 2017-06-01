@@ -1,17 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ClawKSP
 {
     [KSPAddon(KSPAddon.Startup.EveryScene, false)]
     public class Controller : MonoBehaviour
 	{
-		public static bool plusActive = true;
-        public static bool controlSurfacePlus = true;
-        public static bool gimbalPlus = true;
-        public static bool gimbalRateIsActive = true;
-        public static float gimbalResponseSpeed = 10f;
-
         public static void HookModule(string targetModule, string attachingModule)
         {
             for (int indexParts = 0; indexParts < PartLoader.LoadedPartsList.Count; indexParts++)

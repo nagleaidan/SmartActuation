@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 
 namespace ClawKSP
 {
@@ -15,35 +15,30 @@ namespace ClawKSP
 
 	public class MCS : PartModule
 	{
-		private ModuleControlSurface ControlSurfaceModule;
-		private float ctrlSurfaceRange;
-		private float vacuumRange = 1.0f;
+		ModuleControlSurface ControlSurfaceModule;
+		float ctrlSurfaceRange;
+		float vacuumRange = 1.0f;
 
-		[KSPField(isPersistant = true, guiName = "Locked in Vacum", guiActive = true, guiActiveEditor = true), UI_Toggle(enabledText = "On", disabledText = "Off")]
+		[KSPField(isPersistant = true, guiName = "Locked in Vacum", guiActive = true, guiActiveEditor = true), UI_Toggle(enabledText = "True", disabledText = "False")]
 		public bool blockerEnabled = true;
 
 		public override void OnStart(StartState state)
 		{
-			base.OnStart(state);
-
-			ControlSurfaceModule = part.FindModuleImplementing<ModuleControlSurface>();
-			if (null == ControlSurfaceModule)
+			try
 			{
-				Debug.LogWarning("Did not find Control Surface Module.");
-				return;
+				base.OnStart(state);
+				ControlSurfaceModule = part.FindModuleImplementing<ModuleControlSurface>();
+				ctrlSurfaceRange = ControlSurfaceModule.ctrlSurfaceRange;
+				ControlSurfaceModule.ctrlSurfaceRange = ctrlSurfaceRange* vacuumRange;
 			}
-
-			ctrlSurfaceRange = ControlSurfaceModule.ctrlSurfaceRange;
-			ControlSurfaceModule.ctrlSurfaceRange = ctrlSurfaceRange * vacuumRange;
+			catch (Exception ex)				
+			{
+				Debug.LogError("PROBLEM.\n" + ex.Message + "\n" + ex.StackTrace);
+			}
 		}
 
 		public void FixedUpdate()
 		{
-			ControlSurfaceModule = part.FindModuleImplementing<ModuleControlSurface>();
-			if (null == ControlSurfaceModule)
-			{
-				return;
-			}
 			if (!ControlSurfaceModule.deploy&&blockerEnabled)
 			{
 				if (FlightGlobals.getStaticPressure(part.transform.position) < 0.001f)
@@ -75,6 +70,5 @@ namespace ClawKSP
 			}
 			ControlSurfaceModule.ctrlSurfaceRange = ctrlSurfaceRange* vacuumRange * Mathf.Sign(ControlSurfaceModule.ctrlSurfaceRange);
 		}
-		//public void Update(){Debug.Log("test" + blockerEnabled);} //debugger
 	}
 }
