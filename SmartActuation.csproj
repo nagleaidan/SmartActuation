@@ -35,55 +35,55 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-UnityScript-firstpass">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\Assembly-UnityScript-firstpass.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\Assembly-UnityScript-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-UnityScript">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\Assembly-UnityScript.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\Assembly-UnityScript.dll</HintPath>
     </Reference>
     <Reference Include="Boo.Lang">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\Boo.Lang.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="KSPAssets">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\KSPAssets.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\KSPAssets.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\Mono.Cecil.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Security">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\Mono.Security.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\Mono.Security.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\mscorlib.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\System.Core.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\System.Core.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\System.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\System.Xml.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\System.Xml.dll</HintPath>
     </Reference>
     <Reference Include="TrackIRUnity">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\TrackIRUnity.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\TrackIRUnity.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\UnityEngine.Networking.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityScript.Lang">
-      <HintPath>..\..\Desktop\KSP13ru\KSP.app\Contents\Resources\Data\Managed\UnityScript.Lang.dll</HintPath>
+      <HintPath>..\..\KSP\13dll\UnityScript.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 namespace ClawKSP
 {
@@ -10,33 +11,43 @@ namespace ClawKSP
 			Controller.HookModule("ModuleGimbal", "MG");
 		}
 	}
-
 	public class MG : PartModule
 	{
-		public bool on = true;
-		ModuleGimbal gimbal;
-		float gimbalRange;
-		float oneOrZero = 1.0f;
-
+		ModuleEngines engineModule;
+		ModuleGimbal gimbalModule;
+		[KSPField(isPersistant = true, guiName = "Engine Thrust", guiActive = true, guiActiveEditor = true)]
+		float engineFlow;
+        [KSPField(isPersistant = true, guiName = "Automatic Gimbal Lock", guiActive = true, guiActiveEditor = true), UI_Toggle(enabledText = "True", disabledText = "False")]
+		public bool blockerEnabled = true;
 		public override void OnStart(StartState state)
 		{
-			base.OnStart(state);
-			gimbal = part.FindModuleImplementing<ModuleGimbal>();
-			gimbalRange = gimbal.gimbalRange;
-			gimbal.gimbalRange = gimbalRange * oneOrZero;
+			try
+			{
+				base.OnStart(state);
+				gimbalModule = part.FindModuleImplementing<ModuleGimbal>();
+				engineModule = part.FindModuleImplementing<ModuleEngines>();
+				engineFlow = engineModule.fuelFlowGui;
+			}
+			catch (Exception ex)
+			{
+				Debug.LogError("PROBLEM.\n" + ex.Message + "\n" + ex.StackTrace);
+			}
 		}
-
 		public void FixedUpdate()
 		{
-			if (on)
+			if (blockerEnabled)
 			{
-				oneOrZero = 1.0f;
+				engineFlow = engineModule.fuelFlowGui;
+				if (engineFlow < 0.000001f)
+				{
+					gimbalModule.gimbalActive = false;
+				}
+				else
+				{
+					gimbalModule.gimbalActive = true;
+				}
+				Debug.Log(gimbalModule.gimbalActive);
 			}
-			else
-			{
-				oneOrZero = 0.0f;
-			}
-			gimbal.gimbalRange = gimbalRange * oneOrZero;
 		}
 	}
 }

@@ -18,10 +18,8 @@ namespace ClawKSP
 		ModuleControlSurface ControlSurfaceModule;
 		float ctrlSurfaceRange;
 		float vacuumRange = 1.0f;
-
 		[KSPField(isPersistant = true, guiName = "Locked in Vacum", guiActive = true, guiActiveEditor = true), UI_Toggle(enabledText = "True", disabledText = "False")]
 		public bool blockerEnabled = true;
-
 		public override void OnStart(StartState state)
 		{
 			try
@@ -36,7 +34,6 @@ namespace ClawKSP
 				Debug.LogError("PROBLEM.\n" + ex.Message + "\n" + ex.StackTrace);
 			}
 		}
-
 		public void FixedUpdate()
 		{
 			if (!ControlSurfaceModule.deploy&&blockerEnabled)
