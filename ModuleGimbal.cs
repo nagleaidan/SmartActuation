@@ -46,7 +46,6 @@ namespace ClawKSP
 				{
 					gimbalModule.gimbalActive = true;
 				}
-				Debug.Log(gimbalModule.gimbalActive);
 			}
 		}
 	}
