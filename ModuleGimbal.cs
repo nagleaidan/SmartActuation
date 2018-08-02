@@ -35,9 +35,9 @@ namespace ClawKSP
 		}
 		public void FixedUpdate()
 		{
+			engineFlow = engineModule.fuelFlowGui;
 			if (blockerEnabled)
 			{
-				engineFlow = engineModule.fuelFlowGui;
 				if (engineFlow < 0.000001f)
 				{
 					gimbalModule.gimbalActive = false;
@@ -46,6 +46,9 @@ namespace ClawKSP
 				{
 					gimbalModule.gimbalActive = true;
 				}
+			} else if (!gimbalModule.gimbalActive)
+			{
+				gimbalModule.gimbalActive = true;
 			}
 		}
 	}
