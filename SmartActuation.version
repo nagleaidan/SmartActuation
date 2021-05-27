@@ -1,10 +1,10 @@
 {
   "NAME":"SmartActuation",
-  "URL":"https://raw.githubusercontent.com/theRagingIrishman/SmartActuation/master/SmartActuation.version",
-  "DOWNLOAD":"https://github.com/theRagingIrishman/SmartActuation/releases/latest",
+  "URL":"https://raw.githubusercontent.com/nagleaidan/SmartActuation/master/SmartActuation.version",
+  "DOWNLOAD":"https://github.com/nagleaidan/SmartActuation/releases/latest",
   "GITHUB":
   {
-    "USERNAME":"theRagingIrishman",
+    "USERNAME":"nagleaidan",
     "REPOSITORY":"SmartActuation",
     "ALLOW_PRE_RELEASE":false
   },
